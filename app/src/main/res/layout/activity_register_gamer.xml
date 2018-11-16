@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterGamerActivity"
-    tools:layout_editor_absoluteY="81dp">
-
+    tools:layout_editor_absoluteY="81dp"
+    android:background="@drawable/background">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MatchFinder"
+            android:textColor="#000000"
+            android:layout_marginTop="20dp"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
         <EditText
             android:id="@+id/editText"
             android:layout_width="wrap_content"
@@ -19,7 +32,12 @@
             android:ems="10"
             android:hint="Ingrese Nombre"
             android:inputType="textPersonName"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="67dp" />
 
@@ -28,9 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ingrese apellidos"
+            android:hint="Ingrese Apellidos"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
             android:inputType="textPersonName"
-            android:textSize="14sp"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="104dp" />
 
@@ -41,7 +63,11 @@
             android:ems="10"
             android:hint="Ingrese correo"
             android:inputType="textEmailAddress"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="230dp" />
 
@@ -52,7 +78,11 @@
             android:ems="10"
             android:hint="Ingrese telefono"
             android:inputType="phone"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="266dp" />
 
@@ -63,7 +93,11 @@
             android:ems="10"
             android:hint="Ingrese nombre de usuario"
             android:inputType="textPersonName"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="304dp" />
 
@@ -74,50 +108,10 @@
             android:text="Sexo:"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="188dp" />
-
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ingrese contraseña"
-            android:inputType="textPassword"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="340dp" />
-
-        <EditText
-            android:id="@+id/efecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ingrese fecha de nacimiento"
-            android:inputType="date"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="141dp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="122dp"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:textColor="@color/colorPrimary"
-            tools:layout_editor_absoluteX="113dp"
-            tools:layout_editor_absoluteY="437dp" />
-
-        <Button
-            android:id="@+id/crear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crear cuenta"
-            android:textColor="@color/colorPrimary"
-            tools:layout_editor_absoluteX="113dp"
-            tools:layout_editor_absoluteY="379dp" />
-
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="51dp"
+            android:layout_marginBottom="20dp"
             tools:layout_editor_absoluteX="120dp"
             tools:layout_editor_absoluteY="170dp">
 
@@ -136,15 +130,62 @@
                 android:text="Femenino" />
         </RadioGroup>
 
-    </LinearLayout>
+        <EditText
+            android:id="@+id/editText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ingrese contraseña"
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="340dp" />
 
-    <Button
-        android:id="@+id/bfecha"
-        android:layout_width="78dp"
-        android:layout_height="wrap_content"
-        android:text="Select"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="133dp" />
+        <EditText
+            android:id="@+id/efecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ingrese fecha de nacimiento"
+            android:inputType="date"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/inputs"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="141dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/roundend_button"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="437dp" />
+
+        <Button
+            android:id="@+id/crear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear cuenta"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"
+            android:padding="15dp"
+            android:background="@drawable/roundend_button"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="379dp" />
+
+
+
+    </LinearLayout>
+</ScrollView>
 
 </android.support.constraint.ConstraintLayout>

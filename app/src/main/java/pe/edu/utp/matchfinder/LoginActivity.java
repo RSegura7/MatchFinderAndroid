@@ -110,7 +110,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Oops algo ha salido mal", Toast.LENGTH_LONG).show();
+               // Toast.makeText(LoginActivity.this, "Oops algo ha salido mal", Toast.LENGTH_LONG).show();
+                Intent forgottenActivity = new Intent(LoginActivity.this,RegisterGamerActivity.class);
+                startActivity(forgottenActivity);
             }
 
         });
