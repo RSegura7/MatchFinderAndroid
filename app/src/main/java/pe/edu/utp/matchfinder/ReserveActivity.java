@@ -35,8 +35,21 @@ public class ReserveActivity extends AppCompatActivity {
 
                     mes = mes + 1;
 
-                    efecha.setText(dia + "/" + mes + "/" + ano);
+                    //efecha.setText(dia + "/" + mes + "/" + ano);
 
+                    efecha.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DatePickerDialog date = new DatePickerDialog(ReserveActivity.this, new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                    month = month+1;
+                                    efecha.setText(dayOfMonth + "/" + month + "/" + year);
+                                }
+                            },ano,mes,dia);
+                            date.show();
+                        }
+                    });
 
             }
         });
