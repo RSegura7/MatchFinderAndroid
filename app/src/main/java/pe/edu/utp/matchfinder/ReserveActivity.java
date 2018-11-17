@@ -13,7 +13,7 @@ import java.util.Calendar;
 public class ReserveActivity extends AppCompatActivity {
     Button bfecha, bhora;
     EditText efecha, ehora;
-    private int dia,mes,ano,hora,minutos;
+    int dia,mes,ano,hora,minutos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +33,11 @@ public class ReserveActivity extends AppCompatActivity {
                     mes = calendar.get(Calendar.MONTH);
                     ano = calendar.get(Calendar.YEAR);
 
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-                        @Override
-                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                            efecha.setText(dayOfMonth + "/" + month + "/" + year);
-                        }
-                    });
-                    datePickerDialog.show();
+                    mes = mes + 1;
+
+                    efecha.setText(dia + "/" + mes + "/" + ano);
+
+
             }
         });
         bhora.setOnClickListener(new View.OnClickListener() {
