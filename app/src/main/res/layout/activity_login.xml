@@ -31,7 +31,9 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="40dp">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -41,30 +43,15 @@
                 android:layout_marginBottom="30dp"
                 android:src="@drawable/logo"/>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_height="wrap_content">
-
-                <AutoCompleteTextView
-                    android:id="@+id/email"
+                <EditText
+                    android:id="@+id/user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
+                    android:hint="@string/prompt_user"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                >
 
                 <EditText
                     android:id="@+id/password"
@@ -77,10 +64,6 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -95,30 +78,31 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/olvidar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="40dp"
+                android:text="¿Olvidaste tu contraseña?"
+                android:textAlignment="center"
+                android:textColor="#6d4699"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrarse"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="#6d4699"
+                android:textSize="18dp" />
+
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/olvidar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="40dp"
-        android:text="¿Olvidaste tu contraseña?"
-        android:textAlignment="center"
-        android:textColor="#6d4699"
-        android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Registrarse"
-        android:textAlignment="center"
-        android:textColor="#6d4699"
-        android:textSize="18dp" />
 </LinearLayout>

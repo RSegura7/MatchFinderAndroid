@@ -3,7 +3,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_login">Iniciar Sesión</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Correo</string>
+    <string name="prompt_user">Usuario</string>
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in">Iniciar Sesión</string>
     <string name="action_sign_in_short">Ingresar</string>
