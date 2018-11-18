@@ -357,10 +357,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.names().get(0).equals("success")){
-                        attemptLogin();
+                    if (response.equals(0)){
+                        Toast.makeText(getApplicationContext(),"NO SE PUEDE CONECTAR",Toast.LENGTH_LONG).show();
                     }else{
-                        Toast.makeText(getApplicationContext(),"Error" + jsonObject.getString("error"),Toast.LENGTH_LONG).show();
+                        attemptLogin();
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
