@@ -90,7 +90,7 @@ public class ReserveActivity extends AppCompatActivity {
                     });
 
 
-            reserva = (Button)findViewById(R.id.reservar);
+            reserva = (Button)findViewById(R.id.button_reservar);
             reserva.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

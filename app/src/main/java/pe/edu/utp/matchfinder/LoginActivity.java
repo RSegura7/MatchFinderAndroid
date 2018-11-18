@@ -31,8 +31,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -74,22 +87,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 
         mPasswordView = (EditText) findViewById(R.id.password);
+
+
+
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    loguin();
+
                     return true;
                 }
                 return false;
             }
         });
 
+
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                loguin();
 
             }
         });
@@ -330,6 +349,41 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    public void loguin(){
+        RequestQueue requestQueque = Volley.newRequestQueue(this);
+
+        StringRequest request = new StringRequest(Request.Method.POST, "http://andre2sm.000webhostapp.com/Users/getLogin.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.names().get(0).equals("success")){
+                        attemptLogin();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Error" + jsonObject.getString("error"),Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                params.put("username",mEmailView.getText().toString());
+                params.put("password",mPasswordView.getText().toString());
+                return params;
+            }
+        };
+
+        requestQueque.add(request);
+
+    }
 
 
 
