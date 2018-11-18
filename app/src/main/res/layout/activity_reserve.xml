@@ -11,9 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="7dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,40 +43,13 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/equipo1"
+                android:id="@+id/name_reserva"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/inputs"
                 android:ems="10"
-                android:hint="Equipo 1"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="104dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="VS"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/equipo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/inputs"
-                android:ems="10"
-                android:hint="Equipo 2"
+                android:hint="Nombre de Reseca"
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textAlignment="center"
@@ -131,10 +102,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginBottom="40dp"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:textAlignment="center"
                 />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/reservar"
+                android:textColor="#ffffff"
+                android:text="Reservar"
+                android:paddingLeft="20dp"
+                android:textAlignment="center"
+                android:paddingRight="20dp"
+                android:background="@drawable/roundend_button"
+                />
 
         </LinearLayout>
     </ScrollView>
