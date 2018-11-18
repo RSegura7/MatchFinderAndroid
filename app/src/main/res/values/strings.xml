@@ -27,4 +27,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_gamer">GamerActivity</string>
+
+    <string name="gracias">Su reserva se ha 
+        realizado con exito </string>
 </resources>

@@ -50,15 +50,17 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MapsActivity" />
-        <activity android:name=".RegisterGamerActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".RegisterGamerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegisterLanCenterActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".ReserveActivity" />
         <activity android:name=".GamerActivity" />
         <activity android:name=".LanCenterActivity" />
+        <activity android:name=".ThanksReserve"></activity>
     </application>
 
 </manifest>

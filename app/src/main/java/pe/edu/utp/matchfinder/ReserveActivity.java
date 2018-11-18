@@ -2,6 +2,7 @@ package pe.edu.utp.matchfinder;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 public class ReserveActivity extends AppCompatActivity {
-    Button bfecha, bhora;
+    Button bfecha, bhora,reserva;
     EditText efecha, ehora;
     int dia,mes,ano,hora,minutos;
     String format;
@@ -88,7 +89,13 @@ public class ReserveActivity extends AppCompatActivity {
                     });
 
 
-
+            reserva = (Button)findViewById(R.id.reservar);
+            reserva.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Intent gracias = new Intent(ReserveActivity.class,)
+                }
+            });
 
     }
 }
