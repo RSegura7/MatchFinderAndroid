@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
 
 public class ReserveActivity extends AppCompatActivity {
     Button bfecha, bhora,reserva;
-    EditText efecha, ehora;
+    TextView efecha, ehora;
     int dia,mes,ano,hora,minutos;
     String format;
     @Override
@@ -24,10 +25,10 @@ public class ReserveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reserve);
 
         bfecha = (Button)findViewById(R.id.btn_fecha);
-        efecha = (EditText)findViewById(R.id.label_fecha);
+        efecha = (TextView)findViewById(R.id.label_fecha);
 
         bhora = (Button)findViewById(R.id.btn_hora);
-        ehora = (EditText)findViewById(R.id.label_hora);
+        ehora = (TextView) findViewById(R.id.label_hora);
 
 
                     //efecha.setText(dia + "/" + mes + "/" + ano);
