@@ -5,127 +5,128 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    tools:layout_editor_absoluteY="81dp"
     tools:context=".RegisterLanCenterActivity">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MatchFinder"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/name_center"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Ingrese nombre de Lan Center"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="67dp"
+            tools:ignore="MissingConstraints"/>
+
     <EditText
-        android:id="@+id/ehora2"
-        android:layout_width="67dp"
+        android:id="@+id/name_encargado"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
+        android:hint="Ingrese nombre del encargado"
         tools:layout_editor_absoluteX="228dp"
         tools:layout_editor_absoluteY="341dp"
         tools:ignore="MissingConstraints"/>
 
-    <Button
-        android:id="@+id/bhora2"
-        android:layout_width="34dp"
-        android:layout_height="wrap_content"
-        android:text="H"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="344dp"
-        tools:ignore="MissingConstraints"/>
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="72dp"
-        android:layout_height="36dp"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="295dp"
-        tools:ignore="MissingConstraints"/>
 
-    <Button
-        android:id="@+id/crear"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:text="Crear cuenta"
-        android:textColor="@color/colorPrimary"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="392dp"
-        tools:ignore="MissingConstraints"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        android:textColor="@color/colorPrimary"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="447dp"
-        tools:ignore="MissingConstraints"/>
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ingrese nombre de lancenter"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="67dp"
-        tools:ignore="MissingConstraints"/>
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="215dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Ingrese direccion"
         android:inputType="textPersonName"
-        android:textSize="14sp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="104dp"
         tools:ignore="MissingConstraints"/>
 
-    <EditText
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/inputs"
+            android:ems="10"
+            android:hint="Ingrese correo"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <EditText
         android:id="@+id/editText3"
-        android:layout_width="215dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Ingrese telefono"
         android:inputType="phone"
-        android:textSize="14sp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="140dp"
         tools:ignore="MissingConstraints"/>
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ingrese correo"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="177dp"
-        tools:ignore="MissingConstraints"/>
-
-    <EditText
+        <EditText
         android:id="@+id/editText5"
-        android:layout_width="215dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Ingrese cantidad de maquinas"
         android:inputType="date"
-        android:textSize="14sp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="214dp"
-        tools:ignore="MissingConstraints"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MatchFinder"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints"/>
 
     <TextView
@@ -133,10 +134,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Horario de Atencion"
-        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="261dp"
         tools:ignore="MissingConstraints"/>
+
+        <Button
+            android:id="@+id/bhora2"
+            android:layout_width="34dp"
+            android:layout_height="wrap_content"
+            android:text="H"
+            tools:layout_editor_absoluteX="184dp"
+            tools:layout_editor_absoluteY="344dp"
+            tools:ignore="MissingConstraints"/>
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            tools:layout_editor_absoluteX="228dp"
+            tools:layout_editor_absoluteY="295dp"
+            tools:ignore="MissingConstraints"/>
+
+        <Button
+            android:id="@+id/crear"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:text="Crear cuenta"
+            android:textColor="@color/colorPrimary"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="392dp"
+            tools:ignore="MissingConstraints"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:textColor="@color/colorPrimary"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="447dp"
+            tools:ignore="MissingConstraints"/>
 
     <Spinner
         android:id="@+id/spinner"
@@ -165,6 +206,7 @@
         tools:layout_editor_absoluteX="168dp"
         tools:layout_editor_absoluteY="350dp"
         tools:ignore="MissingConstraints"/>
+
 
     <Button
         android:id="@+id/button3"
@@ -202,5 +244,8 @@
         tools:layout_editor_absoluteX="88dp"
         tools:layout_editor_absoluteY="341dp"
         tools:ignore="MissingConstraints"/>
+
+    </LinearLayout>
+</ScrollView>
 
 </android.support.constraint.ConstraintLayout>

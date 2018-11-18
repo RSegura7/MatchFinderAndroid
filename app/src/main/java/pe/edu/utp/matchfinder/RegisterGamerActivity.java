@@ -12,7 +12,8 @@ import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
-public class RegisterGamerActivity extends AppCompatActivity {
+public class
+RegisterGamerActivity extends AppCompatActivity {
 
 
     TextView efecha;
