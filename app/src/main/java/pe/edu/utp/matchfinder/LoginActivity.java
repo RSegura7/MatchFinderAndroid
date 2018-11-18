@@ -71,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         login = (Button)findViewById(R.id.email_sign_in_button);
 
 
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
 
         registrar.setOnClickListener(new OnClickListener() {
             @Override
@@ -93,40 +92,43 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String url = "http://andre2sm.000webhostapp.com/Users/getLogin.php";
-                StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        if(response.trim()!=null){
-                            Toast.makeText(getApplicationContext(),"INGRESO ACEPTADO",Toast.LENGTH_LONG).show();
-                            Intent move = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(move);
-                        }else{
-                            Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<>();
-                        params.put("username",user.getText().toString().trim());
-                        params.put("password",pass.getText().toString().trim());
-                        return super.getParams();
-                    }
-                };
-                MyRequestQueue.add(MyStringRequest);
-
+                ingresar();
             }
         });
 
     }
 
+    protected void ingresar(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "http://andre2sm.000webhostapp.com/Users/getLogin.php";
+        StringRequest datostring = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.toString()!=null){
+                    Toast.makeText(getApplicationContext(),"INGRESO ACEPTADO",Toast.LENGTH_LONG).show();
+                    Intent move = new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(move);
+                }else{
+                    Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"ERROR EN EL RESPONSE",Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                params.put("username",user.getText().toString());
+                params.put("password",pass.getText().toString());
+                return super.getParams();
+            }
+        };
+        queue.add(datostring);
+    }
 }
 
 
