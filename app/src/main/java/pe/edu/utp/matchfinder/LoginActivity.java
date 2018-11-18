@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
+                    loguin();
 
-                    attemptLogin();
                     return true;
                 }
                 return false;
@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                loguin();
 
             }
         });
@@ -358,8 +358,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.names().get(0).equals("success")){
-                        Toast.makeText(getApplicationContext(),"SUCCESS" + jsonObject.getString("success"),Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        attemptLogin();
                     }else{
                         Toast.makeText(getApplicationContext(),"Error" + jsonObject.getString("error"),Toast.LENGTH_LONG).show();
                     }
