@@ -21,7 +21,7 @@
     <string name="nav_header_subtitle">test@matchfinder.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="nav_logout">Salir</string>
-    <string name="about">Acerca de</string>
+    <string name="nav_about">Acerca de</string>
     <string name="action_settings">Configuraciones</string>
     <string name="button_enviar">Enviar</string>
     <string name="button_recuperar_contrasena">Recuperar contraseña</string>

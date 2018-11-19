@@ -104,16 +104,16 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.nav_user) {
-            Intent intent = new Intent(this, GamerActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_lan_center) {
-            Intent intent = new Intent(this, LanCenterActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_reserves) {
-            Intent intent = new Intent(this, ReserveActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_friends) {
-            Toast.makeText(this,"Coming soon!", Toast.LENGTH_LONG );
+
+        } else if (id == R.id.nav_reserves) {
+
+        } else if (id == R.id.nav_about) {
+
+        }   else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

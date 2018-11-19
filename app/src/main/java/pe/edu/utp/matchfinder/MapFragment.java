@@ -60,6 +60,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
         UiSettings uiSettings = mMap.getUiSettings();
@@ -80,6 +81,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                     for (int i = 0; i < jsonArray.length(); i++){
                         JSONObject  business = jsonArray.getJSONObject(i);
 
+                        String id = business.getString("id");
                         String name = business.getString("name");
                         String description = business.getString("description");
                         double latitude = business.getDouble("latitude");
@@ -108,6 +110,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         {
             @Override
             public void onInfoWindowClick(Marker arg0) {
+
                 Intent intent = new Intent(getContext(), LanCenterActivity.class);
                 startActivity(intent);
             }
