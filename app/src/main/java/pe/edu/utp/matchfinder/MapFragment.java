@@ -65,6 +65,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(true);
 
+        LatLng currentLocation = new LatLng(-12.0653655, -77.0368907);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15));
+
         String url = "http://andre2sm.000webhostapp.com/Businesses/getAllBusinesses.php";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -82,8 +86,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                         double longitude = business.getDouble("longitude");
 
                         LatLng marker = new LatLng(latitude, longitude);
-                        mMap.addMarker(new MarkerOptions().position(marker).title(name));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
+                        mMap.addMarker(new MarkerOptions()
+                                .position(marker)
+                                .snippet(description)
+                                .title(name));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -98,17 +104,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         mQueue.add(request);
 
-        LatLng currentLocation = new LatLng(-12.067320, -77.035790);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 2));
-
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener()
+        {
             @Override
-            public boolean onMarkerClick(Marker marker) {
-                Intent intent = new Intent(getActivity(), LanCenterActivity.class);
+            public void onInfoWindowClick(Marker arg0) {
+                Intent intent = new Intent(getContext(), LanCenterActivity.class);
                 startActivity(intent);
-                return false;
             }
+
         });
     }
 
