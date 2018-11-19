@@ -42,21 +42,6 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/name_reserva"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/inputs"
-                android:ems="10"
-                android:hint="Nombre de Reserva"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="104dp" />
-
             <Button
             android:id="@+id/btn_fecha"
             android:layout_width="wrap_content"
