@@ -123,6 +123,15 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (  userText.equals(username) &&  passText.equals(password) ){
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.putExtra("id", id);
+                                    intent.putExtra("rol", rol);
+                                    intent.putExtra("username", username);
+                                    intent.putExtra("password", password);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("lastname", lastname);
+                                    intent.putExtra("birthday", birthday);
+                                    intent.putExtra("mail", mail);
+                                    intent.putExtra("sex", sex);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Usuario o contraseña equivocados", Toast.LENGTH_LONG).show();
