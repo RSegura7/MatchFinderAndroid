@@ -37,9 +37,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,23 +57,24 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity {
 
-    EditText user, pass;
+    EditText et_user, et_pass;
     TextView registrar, olvidar_pass;
     Button login;
+
+    RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        user = (EditText)findViewById(R.id.user);
-        pass = (EditText)findViewById(R.id.password);
+        et_user = (EditText)findViewById(R.id.user);
+        et_pass = (EditText)findViewById(R.id.password);
         registrar = (TextView) findViewById(R.id.register);
         olvidar_pass = (TextView) findViewById(R.id.olvidar);
         login = (Button)findViewById(R.id.email_sign_in_button);
 
-
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
+        mQueue = Volley.newRequestQueue(this);
 
         registrar.setOnClickListener(new OnClickListener() {
             @Override
@@ -94,39 +97,46 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String url = "http://andre2sm.000webhostapp.com/Users/getLogin.php";
-                StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                String userText = et_user.getText().toString();
+                String passText = et_pass.getText().toString();
+
+                String url = "http://andre2sm.000webhostapp.com/Users/getAllUsers.php";
+
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
-                        if(response.trim()!=null){
-                            Toast.makeText(getApplicationContext(),"INGRESO ACEPTADO",Toast.LENGTH_LONG).show();
-                            Intent move = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(move);
-                        }else{
-                            Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_LONG).show();
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("users");
+
+                            for (int i=0; i < jsonArray.length(); i++) {
+                                JSONObject user = jsonArray.getJSONObject(i);
+
+                                int id = user.getInt("id");
+                                String username = user.getString("username");
+                                String password = user.getString("password");
+
+                                if (  userText.equals(username) &&  passText.equals(password) ){
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Usuario o contraseña equivocados", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
 
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<>();
-                        params.put("username",user.getText().toString().trim());
-                        params.put("password",pass.getText().toString().trim());
-                        return super.getParams();
-                    }
-                };
-                MyRequestQueue.add(MyStringRequest);
+                mQueue.add(request);
 
             }
         });
-
     }
-
 }
-
-
