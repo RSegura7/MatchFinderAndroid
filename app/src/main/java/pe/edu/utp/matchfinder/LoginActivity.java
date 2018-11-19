@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                             for (int i=0; i < jsonArray.length(); i++) {
                                 JSONObject user = jsonArray.getJSONObject(i);
 
-                                int id = user.getInt("id");
+                                String id = user.getString("id");
                                 String rol = user.getString("rol");
                                 String username = user.getString("username");
                                 String password = user.getString("password");
@@ -122,11 +122,12 @@ public class LoginActivity extends AppCompatActivity {
                                 String sex = user.getString("sex");
 
                                 if (  userText.equals(username) &&  passText.equals(password) ){
+
+                                    Toast.makeText(getApplicationContext(), id+" "+rol+" "+username+" "+password+" "+name + " "+lastname+" "+birthday+" "+ " "+mail+ " "+sex, Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     intent.putExtra("id", id);
                                     intent.putExtra("rol", rol);
                                     intent.putExtra("username", username);
-                                    intent.putExtra("password", password);
                                     intent.putExtra("name", name);
                                     intent.putExtra("lastname", lastname);
                                     intent.putExtra("birthday", birthday);

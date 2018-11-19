@@ -16,12 +16,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Override
+          @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -35,11 +38,28 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView tvUsername =(TextView) headerView.findViewById(R.id.tv_username);
+        TextView tvEmail = (TextView) headerView.findViewById(R.id.tv_email);
         navigationView.setNavigationItemSelectedListener(this);
 
         MapFragment mapFragment = new MapFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.mainLayout, mapFragment).commit();
+
+        // Getting information from login
+        String id = getIntent().getStringExtra("id");
+        String rol = getIntent().getStringExtra("rol");
+        String username = getIntent().getStringExtra("username");
+        String name = getIntent().getStringExtra("name");
+        String lastname = getIntent().getStringExtra("lastname");
+        String birthday = getIntent().getStringExtra("birthday");
+        String mail = getIntent().getStringExtra("mail");
+        String sex = getIntent().getStringExtra("sex");
+
+        tvUsername.setText(username);
+        tvEmail.setText(mail);
+
     }
 
     @Override
