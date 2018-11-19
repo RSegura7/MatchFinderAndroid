@@ -112,8 +112,14 @@ public class LoginActivity extends AppCompatActivity {
                                 JSONObject user = jsonArray.getJSONObject(i);
 
                                 int id = user.getInt("id");
+                                String rol = user.getString("rol");
                                 String username = user.getString("username");
                                 String password = user.getString("password");
+                                String name = user.getString("name");
+                                String lastname = user.getString("lastname");
+                                String birthday = user.getString("birthday");
+                                String mail = user.getString("mail");
+                                String sex = user.getString("sex");
 
                                 if (  userText.equals(username) &&  passText.equals(password) ){
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
