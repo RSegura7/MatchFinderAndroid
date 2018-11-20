@@ -63,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
 
     RequestQueue mQueue;
 
+    Boolean loginBool = false;
+    ArrayList<String> data = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,52 +103,52 @@ public class LoginActivity extends AppCompatActivity {
                 String userText = et_user.getText().toString();
                 String passText = et_pass.getText().toString();
 
-                String url = "http://andre2sm.000webhostapp.com/Users/getAllUsers.php";
+                String url = "http://andre2sm.000webhostapp.com/Users/getLogin.php";
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("username", userText);
+                params.put("password", passText);
+
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("users");
+                            JSONObject user = response.getJSONObject("users");
 
-                            for (int i=0; i < jsonArray.length(); i++) {
-                                JSONObject user = jsonArray.getJSONObject(i);
+                            String id = user.getString("id");
+                            String rol = user.getString("rol");
+                            String username = user.getString("username");
+                            String password = user.getString("password");
+                            String name = user.getString("name");
+                            String lastname = user.getString("lastname");
+                            String birthday = user.getString("birthday");
+                            String mail = user.getString("mail");
+                            String sex = user.getString("sex");
 
-                                String id = user.getString("id");
-                                String rol = user.getString("rol");
-                                String username = user.getString("username");
-                                String password = user.getString("password");
-                                String name = user.getString("name");
-                                String lastname = user.getString("lastname");
-                                String birthday = user.getString("birthday");
-                                String mail = user.getString("mail");
-                                String sex = user.getString("sex");
-
-                                if (  userText.equals(username) &&  passText.equals(password) ){
-
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    intent.putExtra("id", id);
-                                    intent.putExtra("rol", rol);
-                                    intent.putExtra("username", username);
-                                    intent.putExtra("name", name);
-                                    intent.putExtra("lastname", lastname);
-                                    intent.putExtra("birthday", birthday);
-                                    intent.putExtra("mail", mail);
-                                    intent.putExtra("sex", sex);
-                                    startActivity(intent);
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Usuario o contraseña equivocados", Toast.LENGTH_LONG).show();
-                                }
+                            if ( userText.equals(username) && passText.equals(password) ){
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.putExtra("id", id);
+                                intent.putExtra("rol", rol);
+                                intent.putExtra("username", username);
+                                intent.putExtra("name", name);
+                                intent.putExtra("lastname", lastname);
+                                intent.putExtra("birthday", birthday);
+                                intent.putExtra("mail", mail);
+                                intent.putExtra("sex", sex);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Usuario y contraseña no válidos.", Toast.LENGTH_LONG).show();
                             }
 
                         } catch (JSONException e) {
+                            Toast.makeText(getApplicationContext(), "Problemas con el JSON", Toast.LENGTH_LONG).show();
                             e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Problemas con Voley, no devuelve response", Toast.LENGTH_LONG).show();
                     }
                 });
 
