@@ -1,12 +1,15 @@
 package pe.edu.utp.matchfinder;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +26,8 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    AlertDialog.Builder builder;
 
           @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,16 +109,37 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.nav_user) {
+            Toast.makeText(this, "Aquí iran los detalles de la cuenta del usuario", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_friends) {
-
+            Toast.makeText(this, "Aquí iran los amigos que tenga el usuario", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_reserves) {
-
+            Toast.makeText(this, "Aquí ira el historial de reservas del usuario", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_about) {
-
+            Toast.makeText(this, "Aqui ira información de la aplicación", Toast.LENGTH_SHORT).show();
         }   else if (id == R.id.nav_logout) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(this);
+            }
+            builder.setTitle("Cerrar Sesión")
+                    .setMessage("¿Deseas cerrar sesión?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

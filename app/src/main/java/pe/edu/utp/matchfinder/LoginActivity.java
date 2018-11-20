@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("mail", mail);
                                 intent.putExtra("sex", sex);
                                 startActivity(intent);
+                                finish();
                             }else{
                                 Toast.makeText(getApplicationContext(), "Usuario y contraseña no válidos.", Toast.LENGTH_LONG).show();
                             }
