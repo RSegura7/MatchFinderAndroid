@@ -123,7 +123,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (  userText.equals(username) &&  passText.equals(password) ){
 
-                                    Toast.makeText(getApplicationContext(), id+" "+rol+" "+username+" "+password+" "+name + " "+lastname+" "+birthday+" "+ " "+mail+ " "+sex, Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     intent.putExtra("id", id);
                                     intent.putExtra("rol", rol);
