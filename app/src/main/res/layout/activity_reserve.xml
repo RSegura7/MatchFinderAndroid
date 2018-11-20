@@ -43,38 +43,40 @@
                 android:textStyle="bold" />
 
             <Button
-            android:id="@+id/btn_fecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Fecha:" android:layout_marginBottom="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:background="@drawable/roundend_button"
-            android:textColor="#ffffff"
-            android:textSize="18dp"
+                android:id="@+id/btn_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/roundend_button"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Fecha:"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
 
-            />
+                />
 
             <TextView
                 android:id="@+id/label_fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:textAlignment="center"
-                />
+                android:ems="10"
+                android:hint="dd/mm/yyyy"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/btn_hora"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Hora:"
-                android:paddingLeft="20dp"
-                android:layout_marginBottom="10dp"
-                android:paddingRight="20dp"
+                android:layout_marginBottom="0dp"
                 android:background="@drawable/roundend_button"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Hora:"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
 
@@ -84,10 +86,11 @@
                 android:id="@+id/label_hora"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:layout_marginBottom="40dp"
-                android:textAlignment="center"
-                />
+                android:hint="00:00AM"
+                android:textAlignment="center" />
 
             <Button
                 android:layout_width="wrap_content"
